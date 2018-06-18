@@ -34,7 +34,7 @@ if($method == 'POST'){
 	$response->source = "webhook";
 	echo json_encode($response);
 }
-if ($method='GET') {
+if ($method=='GET') {
 	echo "In GET requestBody";		
 }
 else
