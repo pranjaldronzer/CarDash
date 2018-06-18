@@ -3,7 +3,7 @@
 $parameter = $_SERVER['REQUEST_METHOD'];
 $requestBody = file_get_contents('php://input');
 
-filter(requestBody);
+filter($requestBody);
 
 function filter($parameter)
 {
