@@ -1,11 +1,16 @@
 <?php 
 
 $method = $_SERVER['REQUEST_METHOD'];
+$requestBody = file_get_contents('php://input');
 
-// Process only when method is POST
-if($method == 'POST'){
-	$requestBody = file_get_contents('php://input');
-	$json = json_decode($requestBody);
+filter(requestBody);
+
+function filter($parameter)
+{
+	if($method == 'POST')
+	{
+	
+	$json = json_decode($parameter);
 
 	$text = $json->queryResult->queryText;
 
@@ -32,14 +37,24 @@ if($method == 'POST'){
 	$response->speech = $speech;
 	$response->displayText = $speech;
 	$response->source = "webhook";
-	echo json_encode($response);
+	send(json_encode($response));
+	}
+	
+	if ($method='GET') 
+	{
+		send ("In GET requestBody");		
+	}
+	else
+	{
+	send ("Method not allowed");
+	}	
 }
-if ($method=='GET') {
-	echo "In GET requestBody";		
-}
-else
+
+function send($parameter)
 {
-	echo "Method not allowed";
+	echo $parameter;
 }
+
+
 
 ?>
