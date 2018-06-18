@@ -27,11 +27,15 @@ if($method == 'POST'){
 			break;
 	}
 
+
 	$response = new \stdClass();
 	$response->speech = $speech;
 	$response->displayText = $speech;
 	$response->source = "webhook";
 	echo json_encode($response);
+}
+if ($method='GET') {
+	echo "In GET requestBody";		
 }
 else
 {
