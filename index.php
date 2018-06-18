@@ -7,7 +7,7 @@ if (method=="POST")
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode(requestBody);
 
-	$text = $json->result->parameter->text;
+	$text = $json->queryResult;
 	switch ($text) {
 		case 'hello':
 			$speech = "Hello from this side"
