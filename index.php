@@ -40,7 +40,7 @@ function filter($parameter)
 	send(json_encode($response));
 	}
 	
-	if ($method='GET') 
+	if ($method=='GET') 
 	{
 		send ("In GET requestBody");		
 	}
