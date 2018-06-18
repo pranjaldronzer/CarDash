@@ -1,13 +1,13 @@
 <?php 
 
-$parameter = $_SERVER['REQUEST_METHOD'];
+$method = $_SERVER['REQUEST_METHOD'];
 $requestBody = file_get_contents('php://input');
 
-filter($requestBody);
+filter($method,$requestBody);
 
-function filter($parameter)
+function filter($request, $parameter)
 {
-	if($parameter == 'POST')
+	if($request == 'POST')
 	{
 	
 	$json = json_decode($parameter);
@@ -40,7 +40,7 @@ function filter($parameter)
 	send(json_encode($response));
 	}
 	
-	if ($parameter=='GET') 
+	if ($request =='GET') 
 	{
 		send ("In GET requestBody");		
 	}
