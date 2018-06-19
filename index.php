@@ -1,5 +1,7 @@
 <?php 
 
+include 'newPage.php';
+
 $method = $_SERVER['REQUEST_METHOD'];
 $requestBody = file_get_contents('php://input');
 
@@ -44,6 +46,9 @@ function filter($request, $parameter)
 	if ($request =='GET') 
 	{
 		send ("In GET requestBody");		
+		send ("<br>");
+		$abc = new newPage();
+		
 	}
 		
 }
