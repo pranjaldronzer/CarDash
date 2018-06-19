@@ -45,10 +45,14 @@ function filter($request, $parameter)
 	
 	if ($request =='GET') 
 	{
-		send ("In GET requestBody");		
-		send ("<br>");
-		$abc = new handleQuery();
+		//send ("In GET requestBody");		
+		//send ("<br>");
+		
 
+		$myfile = fopen("sample.html", "r") or die("Unable to open file!");
+		echo fread($myfile,filesize("sample.html"));
+		fclose($myfile);
+		$abc = new handleQuery();
 	}
 		
 }
