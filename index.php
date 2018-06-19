@@ -46,7 +46,7 @@ function filter($request, $parameter)
 	}
 	else
 	{
-	send ("Method not allowed");
+		send ("Method not allowed");
 	}	
 }
 
