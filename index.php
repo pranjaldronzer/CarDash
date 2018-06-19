@@ -46,8 +46,8 @@ function filter($request, $parameter)
 	if ($request =='GET') 
 	{
 		send ("In GET requestBody");		
-		//send ("<br>");
-		//$abc = new handleQuery();
+		send ("<br>");
+		$abc = new handleQuery();
 
 	}
 		
