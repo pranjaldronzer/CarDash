@@ -12,53 +12,43 @@ function filter($request, $parameter)
 	if($request == 'POST')
 	{
 	
-	$query=$_SERVER['QUERY_STRING'];
-		if ($query=="speech") 
+	$json = json_decode($parameter);
+
+	$text = $json->queryResult->queryText;
+
+	switch ($text) 
 		{
+		case 'hi':
+			$speech = "Hi, Nice to meet you";
+			break;
 
-			$json = json_decode($parameter);
+		case 'bye':
+			$speech = "Bye, good night";
+			break;
 
-			$text = $json->queryResult->queryText;
+		case 'anything':
+			$speech = "Yes, you can type anything here.";
+			break;
 		
-			switch ($text) 
-				{
-				case 'hi':
-					$speech = "Hi, Nice to meet you";
-					break;
-		
-				case 'bye':
-					$speech = "Bye, good night";
-					break;
-		
-				case 'anything':
-					$speech = "Yes, you can type anything here.";
-					break;
-				
-				default:
-					$speech = "Sorry, I didnt get that. Please ask me something else.";
-					break;
-				}
-		
-		
-			$response = new \stdClass();
-			$response->speech = $speech;
-			$response->displayText = $speech;
-			$response->source = "webhook";
-			send(json_encode($response));.
+		default:
+			$speech = "Sorry, I didnt get that. Please ask me something else.";
+			break;
 		}
-			
+
+
+		$response = new \stdClass();
+		$response->speech = $speech;
+		$response->displayText = $speech;
+		$response->source = "webhook";
+		send(json_encode($response));
 	}
 	
 	if ($request =='GET') 
 	{
-		//send ("In GET requestBody");		
-		//send ("<br>");
-		
-
-		$myfile = fopen("sample.html", "r") or die("Unable to open file!");
-		echo fread($myfile,filesize("sample.html"));
-		fclose($myfile);
+		send ("In GET requestBody");		
+		send ("<br>");
 		$abc = new handleQuery();
+
 	}
 		
 }
