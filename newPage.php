@@ -10,6 +10,9 @@ class handleQuery
 	{
 		$query=$_SERVER['QUERY_STRING'];
 		echo $query;
+
+		echo "<br>"
+
 	}
 }
 
