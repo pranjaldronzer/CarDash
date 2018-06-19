@@ -14,7 +14,8 @@ function filter($request, $parameter)
 
 	$text = $json->queryResult->queryText;
 
-	switch ($text) {
+	switch ($text) 
+		{
 		case 'hi':
 			$speech = "Hi, Nice to meet you";
 			break;
@@ -30,24 +31,21 @@ function filter($request, $parameter)
 		default:
 			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
-	}
+		}
 
 
-	$response = new \stdClass();
-	$response->speech = $speech;
-	$response->displayText = $speech;
-	$response->source = "webhook";
-	send(json_encode($response));
+		$response = new \stdClass();
+		$response->speech = $speech;
+		$response->displayText = $speech;
+		$response->source = "webhook";
+		send(json_encode($response));
 	}
 	
 	if ($request =='GET') 
 	{
 		send ("In GET requestBody");		
 	}
-	else
-	{
-		send ("Method not allowed");
-	}	
+		
 }
 
 function send($parameter)
