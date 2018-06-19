@@ -47,8 +47,8 @@ function filter($request, $parameter)
 	{
 		send ("In GET requestBody");		
 		send ("<br>");
-		$abc = new newPage();
-		
+		$abc = new handleQuery();
+
 	}
 		
 }

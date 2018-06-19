@@ -3,13 +3,12 @@
 /**
  * 
  */
-class NewPage 
+class handleQuery 
 {
 	
-	function newPage()
+	function handleQuery()
 	{
 		$query=$_SERVER['QUERY_STRING'];
-		echo "hello from newPage";
 		echo $query;
 	}
 }
