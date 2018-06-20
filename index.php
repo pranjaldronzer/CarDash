@@ -13,8 +13,7 @@ function filter($request, $parameter)
 	if($request == 'POST')
 	{
 		$query=$_SERVER['QUERY_STRING'];
-		send ($query);
-		send ("<br>");
+		
 		if ($query== "speech") 
 		{
 			
@@ -69,7 +68,4 @@ function send($parameter)
 {
 	echo $parameter;
 }
-
-
-
 ?>
