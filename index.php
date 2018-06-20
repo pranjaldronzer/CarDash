@@ -3,9 +3,7 @@
 include 'newPage.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
-$query=$_SERVER['QUERY_STRING'];
-send ($query);
-send ("<br>");
+
 $requestBody = file_get_contents('php://input');
 
 filter($method,$requestBody);
@@ -14,6 +12,9 @@ function filter($request, $parameter)
 {
 	if($request == 'POST')
 	{
+		$query=$_SERVER['QUERY_STRING'];
+		send ($query);
+		send ("<br>");
 		if ($query== "speech") 
 		{
 			
