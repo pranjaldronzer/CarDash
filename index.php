@@ -4,6 +4,8 @@ include 'newPage.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 $query=$_SERVER['QUERY_STRING'];
+send ($query);
+send ("<br>");
 $requestBody = file_get_contents('php://input');
 
 filter($method,$requestBody);
